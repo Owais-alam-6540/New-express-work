@@ -6,7 +6,9 @@ require("dotenv").config()
 
 let port=process.env.PORT || 3000
 let app = express();
-
+// json
+app.use(express.json());
+// json
 app.use("/web/",r);
 // datagoincolllection
 let send_data=async function(){
@@ -26,7 +28,7 @@ let send_data=async function(){
 // datagoincolllection
 
 db().then(()=>{
-    send_data();
+    // send_data();
     app.listen(port,()=>{
         console.log(`server is running on port http://localhost:${port}/web`);
     })
